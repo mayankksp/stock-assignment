@@ -14,11 +14,18 @@ require("dotenv").config();
 const stockData = require("./data");
 const app = express();
 app.use(flash());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://enchanting-elf-d1a9fe.netlify.app"
+];
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
+  origin: allowedOrigins,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+  allowedHeaders: "Content-Type, Authorization",
+})
 );
 app.use(express.json());
 app.use(
@@ -124,4 +131,4 @@ app.post("/send-whatsapp", (req, res) => {
   res.json({ message: "Whatsapp sent successfully" });
 });
 
-app.listen(8000, () => console.log("Server running on port 8000"));
+app.listen(process.env.PORT, () => console.log("Server running on port 8000"));
