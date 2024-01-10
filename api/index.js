@@ -16,9 +16,12 @@ const app = express();
 app.use(flash());
 app.use(
   cors({
-    origin: "*",
-    credentials: true,
-  })
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+  allowedHeaders: "Content-Type, Authorization",
+})
 );
 app.use(express.json());
 app.use(
