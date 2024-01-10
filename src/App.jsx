@@ -13,7 +13,7 @@ import { PriceContextProvider } from "./context/DataContext";
 import RegisterPage from "./pages/RegisterPage";
 import Home from "./pages/Home";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "https://assignment2-u1rm.onrender.com";
 axios.defaults.withCredentials = true;
 
 const App = () => {
