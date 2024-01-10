@@ -124,4 +124,4 @@ app.post("/send-whatsapp", (req, res) => {
   res.json({ message: "Whatsapp sent successfully" });
 });
 
-app.listen(8000, () => console.log("Server running on port 8000"));
+app.listen(process.env.PORT, () => console.log("Server running on port 8000"));
