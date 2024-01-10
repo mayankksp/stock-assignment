@@ -14,9 +14,13 @@ require("dotenv").config();
 const stockData = require("./data");
 const app = express();
 app.use(flash());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://enchanting-elf-d1a9fe.netlify.app"
+];
 app.use(
   cors({
-  origin: "*",
+  origin: allowedOrigins,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
